@@ -25,9 +25,7 @@ public:
 
 	ATerrainTile(TileTypes TileType);
 
-	UPROPERTY()
-	USceneComponent* RootComponent;
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere)
 	UStaticMeshComponent* MeshComponent;
 
 protected:
