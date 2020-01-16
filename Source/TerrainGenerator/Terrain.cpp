@@ -2,6 +2,7 @@
 
 
 #include "Terrain.h"
+#include "TerrainTile.h"
 
 // Sets default values
 ATerrain::ATerrain() : Width(), Height() {
@@ -17,6 +18,15 @@ ATerrain::ATerrain(uint32 Width, uint32 Height) {
 // Called when the game starts or when spawned
 void ATerrain::BeginPlay() {
 	Super::BeginPlay();
+
+	UWorld* world = GetWorld();
+
+	for (uint32 y = 0; y < this->Width; y++) {
+		for (uint32 x = 0; x < this->Height; x++) {
+			TileMap.Add(FVector2D((float)x, (float)y), nullptr);
+		}
+	}
+
 }
 
 // Called every frame

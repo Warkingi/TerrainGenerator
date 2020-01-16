@@ -4,8 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "TerrainTile.h"
 #include "Terrain.generated.h"
+
+#define DEFAULT_WIDTH = 100
+#define DEFAULT_HEIGHT = 100 // TODO: Setup default macros
 
 UCLASS()
 class TERRAINGENERATOR_API ATerrain : public AActor {
@@ -25,8 +27,11 @@ public:
 
 	uint32 Width, Height;
 
-	UPROPERTY()
-	TMap<FVector2D, ATerrainTile*> TileMap;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	TMap<FVector2D, class ATerrainTile*> TileMap;
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<class ATerrainTile> tile;
 
 protected:
 	// Called when the game starts or when spawned

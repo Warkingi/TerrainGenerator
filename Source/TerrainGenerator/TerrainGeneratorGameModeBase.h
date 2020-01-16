@@ -10,8 +10,12 @@
  * 
  */
 UCLASS()
-class TERRAINGENERATOR_API ATerrainGeneratorGameModeBase : public AGameModeBase
-{
+class TERRAINGENERATOR_API ATerrainGeneratorGameModeBase : public AGameModeBase {
+
 	GENERATED_BODY()
 	
+public:
+
+	uint32 test;
+
 };

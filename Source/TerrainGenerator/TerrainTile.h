@@ -7,7 +7,7 @@
 #include "TerrainTile.generated.h"
 
 UENUM()
-enum class TileTypes : uint8 {
+enum class ETileTypes : uint8 {
 
 	UNDEFINED = 0,
 	GRASSLAND = 1,
@@ -23,7 +23,7 @@ public:
 	// Sets default values for this actor's properties
 	ATerrainTile();
 
-	ATerrainTile(TileTypes TileType);
+	ATerrainTile(ETileTypes TileType);
 
 	UPROPERTY(VisibleAnywhere)
 	UStaticMeshComponent* MeshComponent;
