@@ -4,34 +4,19 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "TerrainTile.generated.h"
-
-class APlaceableObject;
-
-UENUM()
-enum class ETileTypes : uint8 {
-
-	UNDEFINED = 0,
-	GRASSLAND = 1,
-
-};
+#include "GameManager.generated.h"
 
 UCLASS()
-class TERRAINGENERATOR_API ATerrainTile : public AActor {
+class TERRAINGENERATOR_API AGameManager : public AActor {
 
 	GENERATED_BODY()
-
+	
 public:	
 	// Sets default values for this actor's properties
-	ATerrainTile();
+	AGameManager();
 
-	ATerrainTile(ETileTypes TileType);
-
-	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* MeshComponent;
-
-	UPROPERTY()
-	APlaceableObject* PlaceableSlot;
+	UPROPERTY(VisibleAnywhere, Category="Terrain Properties")
+	class ATerrain* Terrain;
 
 protected:
 	// Called when the game starts or when spawned

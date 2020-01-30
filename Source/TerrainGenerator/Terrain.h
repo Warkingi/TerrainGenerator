@@ -6,9 +6,6 @@
 #include "GameFramework/Actor.h"
 #include "Terrain.generated.h"
 
-#define DEFAULT_WIDTH = 100
-#define DEFAULT_HEIGHT = 100 // TODO: Setup default macros
-
 UCLASS()
 class TERRAINGENERATOR_API ATerrain : public AActor {
 
@@ -18,27 +15,33 @@ public:
 	// Sets default values for Terrain
 	ATerrain();
 	/**
-	* Set the width and height of the Terrain.
+	* Initalize the Width and Height of the Terrain.
 	* @param Width - The Width of the new Terrain.
 	* @param Height - The Height of the new Terrain.
-	* @warning Terrain cannot have a width and height less than 1
+	* @param Seed - The world generation Seed.
+	* @warning Terrain cannot have a width and height less than 1.
 	*/
-	ATerrain(uint32 Width, uint32 Height);
-
-	uint32 Width, Height;
+	void Initialize(uint32 Width, uint32 Height, uint32 Seed = 0);
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	TMap<FVector2D, class ATerrainTile*> TileMap;
 
-	UPROPERTY(EditAnywhere)
-	TSubclassOf<class ATerrainTile> tile;
+private:
+
+	UPROPERTY(VisibleAnywhere)
+	uint32 Width;
+	UPROPERTY(VisibleAnywhere)
+	uint32 Height;
 
 protected:
+
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:	
+
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
 
 };

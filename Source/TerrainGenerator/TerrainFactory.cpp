@@ -2,9 +2,19 @@
 
 
 #include "TerrainFactory.h"
+#include "Terrain.h"
 
-TerrainFactory::TerrainFactory() {
-}
+ATerrain* TerrainFactory::GenerateNewTerrain(uint32 Width, uint32 Height, uint32 Seed) {
 
-TerrainFactory::~TerrainFactory() {
+	//CreateDefaultObject();
+	//FObjectInitializer.CreateDefaultObject<ATerrain>();
+
+	//ATerrain* Terrain;
+
+	//Terrain = NewObject<ATerrain>();
+	//Terrain = GetWorld()->SpawnActor<ATerrain>(Terrain->GetClass());
+
+	//Terrain->Initialize(Width, Height, Seed);
+
+	return nullptr;
 }
